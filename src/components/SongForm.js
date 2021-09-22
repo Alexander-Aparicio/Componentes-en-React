@@ -1,8 +1,7 @@
 import React, { useState} from 'react';
 
 const initialForm ={
-    artist:"",
-    song:""
+    artist:""
 }
 
 const FormBuscador = ({handleSearch})=>{
@@ -18,7 +17,7 @@ const FormBuscador = ({handleSearch})=>{
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        if(!form.artist || !form.song){
+        if(!form.artist ){
             alert("Datos incompletos")
             return
         }
@@ -33,11 +32,13 @@ const FormBuscador = ({handleSearch})=>{
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Artitsta" name="artist" onChange={handleChange} value={form.artist}/>
-                <input type="text" placeholder="Canción" name="song" onChange={handleChange} value={form.song}/>
+                {/* <input type="text" placeholder="Canción" name="song" onChange={handleChange} value={form.song}/> */}
                 <input type="submit" value="Buscar" />
             </form>
         </div>
     )
+    // song:""
+    // || !form.song
 }
 
 export default FormBuscador

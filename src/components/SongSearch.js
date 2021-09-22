@@ -9,7 +9,7 @@ const BuscadorDeCanciones = ()=>{
 
     const [search, setSearch] = useState(null)
     const [cantante,setCantante] = useState(null)
-    const [cancion,setCancion] = useState(null)
+    // const [cancion,setCancion] = useState(null)
     const [loading, setLoading] = useState(false)
     const [negativeRes, setNegativeRes] = useState(false)
 
@@ -21,28 +21,28 @@ const BuscadorDeCanciones = ()=>{
         if(search === null) return
 
         const fechtData = async ()=>{
-            const {artist, song} = await search
+            const {artist} = await search
 
             let artistUrl = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`
-            let songUrl = `https://www.etnassoft.com/api/v1/get/?category=${song}`
+            // let songUrl = `https://www.etnassoft.com/api/v1/get/?category=${song}`
 
             setLoading(true);
 
             // Creo dos variables donde se guardaran los valores de peticionesApiRest
             // el valor de peticionesApiRest().Get(artistUrl) se guarda en artistRes
-            const [artistRes, songRes] = await Promise.all([
+            const [artistRes] = await Promise.all([
                 peticionesApiRest().Get(artistUrl),
-                peticionesApiRest().Get(songUrl)
+                // peticionesApiRest().Get(songUrl)
             ])
             
-            if(artistRes.artists !== null & songRes.length > 0){
+            if(artistRes.artists !== null ){
                 setCantante(artistRes)
-                setCancion(songRes)
+                // setCancion(songRes)
                 setNegativeRes(false)
                 setLoading(false)
             }else{
                 setCantante(null)
-                setCancion(null)
+                // setCancion(null)
                 setNegativeRes(true)
                 setLoading(false)
             }  
@@ -57,10 +57,14 @@ return(
         <FormBuscador handleSearch={handleSearch}/>
         {loading && <Loader/>}
         {search && !loading && (
-            <Respuesta dataSinger={cantante} dataSong={cancion} negativeRes={negativeRes}/>
+            <Respuesta dataSinger={cantante}  negativeRes={negativeRes}/>
         )}
     </div> 
     )
+    // , song
+    // , songRes
+    // & songRes.length > 0
+    // dataSong={cancion}
 }
 
 export default BuscadorDeCanciones
