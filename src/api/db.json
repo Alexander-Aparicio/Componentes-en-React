@@ -1,0 +1,29 @@
+{
+  "Sitios": [
+    {
+      "id": 1,
+      "web": "https://talleresonlineperu.com",
+      "tipo": "Blog"
+    },
+    {
+      "id": 2,
+      "web": "https://suminidetalles.com",
+      "tipo": "Tienda"
+    },
+    {
+      "id": 3,
+      "web": "https://pantalonetasdemoda.com",
+      "tipo": "Tienda"
+    },
+    {
+      "id": 4,
+      "web": "https://blogueroweb.com",
+      "tipo": "Blog"
+    },
+    {
+      "id": 5,
+      "web": "https://jonmircha.com",
+      "tipo": "Blog"
+    }
+  ]
+}
